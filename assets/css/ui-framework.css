@@ -1,0 +1,283 @@
+/*
+ * AI Wallpaper Builder - Modern UI Framework
+ * Provides consistent, modern styling for all UI components
+ */
+
+/* Modern Button System */
+.awb-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+  min-height: 36px;
+}
+
+.awb-btn:focus {
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.awb-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Material UI Button Variants */
+.awb-btn-primary {
+  background: #000000; /* Material Green */
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba(76, 175, 80, 0.3);
+}
+
+.awb-btn-primary:hover:not(:disabled) {
+  background: #333333;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+}
+
+.awb-btn-secondary {
+  background: #6b7280;
+  color: white;
+}
+
+.awb-btn-secondary:hover:not(:disabled) {
+  background: #5b6370;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(107, 114, 128, 0.4);
+}
+
+.awb-btn-outline {
+  background: transparent;
+  border: 2px solid #d1d5db;
+  color: #374151;
+}
+
+.awb-btn-outline:hover:not(:disabled) {
+  border-color: #6366f1;
+  color: #6366f1;
+  background: #f8faff;
+}
+
+/* Button Sizes */
+.awb-btn-sm {
+  padding: 6px 12px;
+  font-size: 12px;
+  min-height: 32px;
+}
+
+.awb-btn-lg {
+  padding: 12px 24px;
+  font-size: 16px;
+  min-height: 44px;
+}
+
+/* Modern Form Controls */
+.awb-input {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  border: 2px solid #d1d5db;
+  border-radius: 6px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  background: white;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.awb-input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.awb-input:invalid {
+  border-color: #ef4444;
+}
+
+.awb-input:invalid:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.awb-select {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  border: 2px solid #d1d5db;
+  border-radius: 6px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.awb-select:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Form Groups */
+.awb-form-group {
+  margin-bottom: 16px;
+}
+
+.awb-label {
+  display: block;
+  margin-bottom: 6px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.awb-label.required::after {
+  content: " *";
+  color: #ef4444;
+}
+
+/* Input Groups */
+.awb-input-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.awb-input-group .awb-input {
+  flex: 1;
+}
+
+.awb-input-addon {
+  padding: 8px 12px;
+  background: #f3f4f6;
+  border: 2px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+/* Cards */
+.awb-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.awb-card-header {
+  padding: 16px 20px;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  font-weight: 600;
+  color: #374151;
+}
+
+.awb-card-body {
+  padding: 20px;
+}
+
+/* Alerts */
+.awb-alert {
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.awb-alert-info {
+  background: #dbeafe;
+  color: #1e40af;
+  border: 1px solid #93c5fd;
+}
+
+.awb-alert-success {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+}
+
+.awb-alert-warning {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fcd34d;
+}
+
+.awb-alert-error {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+}
+
+/* Utility Classes */
+.awb-flex {
+  display: flex;
+}
+
+.awb-flex-col {
+  flex-direction: column;
+}
+
+.awb-items-center {
+  align-items: center;
+}
+
+.awb-justify-center {
+  justify-content: center;
+}
+
+.awb-gap-2 {
+  gap: 8px;
+}
+
+.awb-gap-4 {
+  gap: 16px;
+}
+
+.awb-mb-4 {
+  margin-bottom: 16px;
+}
+
+.awb-text-center {
+  text-align: center;
+}
+
+.awb-hidden {
+  display: none;
+}
+
+/* Removed Split Button Styles - Using Classic Dropdown */
+
+/* Dark Theme Support */
+@media (prefers-color-scheme: dark) {
+  .awb-card {
+    background: #1f2937;
+    border-color: #374151;
+    color: #f9fafb;
+  }
+  
+  .awb-input,
+  .awb-select {
+    background: #1f2937;
+    border-color: #374151;
+    color: #f9fafb;
+  }
+  
+  .awb-input:focus,
+  .awb-select:focus {
+    border-color: #818cf8;
+  }
+} 

@@ -1,0 +1,463 @@
+/* Frontend – Felder untereinander, saubere Abstände */
+/* Frontend – neu gestaltetes Formular mit einheitlicher Breite und klarer Trennung */
+/* Container for the AI Wallpaper inputs on the product page. Remove dense padding and use a subtle border. */
+.awb-box{border:1px solid #ddd;border-radius: 0;margin:12px 0;background:#fff}
+/* Jede Zeile besteht aus zwei Spalten: Label links, Input rechts. Zwischen den Zeilen dünne graue Linien. */
+.awb-box .row{display:grid;grid-template-columns:140px 1fr;gap:10px;align-items:center;padding:12px 10px;border-bottom:1px solid #e8e8e8}
+.awb-box .row:first-child{border-top:1px solid #e8e8e8}
+.awb-box .row label{font-weight:600;color:#333;white-space:nowrap}
+/* Spezielle Zeile für Größe: Breite und Höhe nebeneinander mit Multiplikationszeichen */
+/* Spezielle Zeile für Größe: Breite und Höhe nebeneinander mit Multiplikationszeichen */
+.awb-box .size-inputs{display:flex;align-items:center;gap:6px}
+.awb-box .size-inputs input{flex:1 1 auto;width:100%;box-sizing:border-box;padding:6px;border:1px solid #ccc;border-radius:4px}
+.awb-box .size-sep{font-size:1.2em;color:#555;display:inline-block;margin:0 4px}
+/* Karten-Felder */
+
+/*
+ * Card field styling
+ * Hide the default radio buttons and use the image container itself as the
+ * selectable element. When selected, apply a coloured outline. On hover,
+ * enlarge the image considerably to give users a better view (scale 3x).
+ */
+.awb-box .cards{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-start}
+.awb-box .card{position:relative;display:inline-flex;flex-direction:column;align-items:center;border:2px solid transparent;border-radius: 0;padding:4px;cursor:pointer;transition:transform 0.2s ease;border-color:transparent;overflow:visible}
+.awb-box .card input[type=radio]{display:none}
+.awb-box .card img{width:70px;height:70px;object-fit:cover;border-radius: 0;transition:transform 0.3s ease, box-shadow 0.3s ease}
+.awb-box .card:hover img{transform:scale(3);z-index:4;box-shadow:0 4px 12px rgba(0,0,0,0.3)}
+.awb-box .card.selected{border-color:#82b440}
+.awb-box .card.selected img{box-shadow:0 0 0 2px #82b440,0 4px 12px rgba(0,0,0,0.3)}
+
+/* Modal card styling: replicate similar behaviour inside the modal's form
+   column. Use a slightly smaller hover scale to avoid overflowing the form.
+ */
+.awb-modal .card{position:relative;display:inline-flex;flex-direction:column;align-items:center;border:2px solid transparent;border-radius: 0;padding:4px;cursor:pointer;transition:transform 0.2s ease;border-color:transparent;overflow:visible;margin-right:8px;margin-bottom:8px}
+.awb-modal .card input[type=radio]{display:none}
+.awb-modal .card img{width:60px;height:60px;object-fit:cover;border-radius: 0;transition:transform 0.3s ease, box-shadow 0.3s ease}
+.awb-modal .card:hover img{transform:scale(2.5);z-index:3;box-shadow:0 4px 12px rgba(0,0,0,0.3)}
+.awb-modal .card.selected{border-color:#82b440}
+.awb-modal .card.selected img{box-shadow:0 0 0 2px #82b440,0 4px 12px rgba(0,0,0,0.3)}
+/* Standard Inputs styling */
+.awb-box input[type="text"],
+.awb-box input[type="number"],
+.awb-box textarea{
+  width:100%;
+  padding:6px;
+  border:1px solid #ccc;
+  border-radius: 0;
+  box-sizing:border-box;
+}
+.awb-box textarea{
+  resize:vertical;
+}
+/* Preisdarstellung */
+/* Preisdarstellung */
+.awb-box .awb-price{padding:12px 10px;border-top:1px solid #e8e8e8}
+.awb-box .awb-price .total-price{font-size:2em;font-weight:700;margin-bottom:4px;color:#111}
+.awb-box .awb-price .sqm-price{font-size:0.85em;color:#666;margin-bottom:4px}
+
+/*
+ * New order bar styling for the single product page. This bar sits
+ * directly underneath the AWB builder box and contains the primary
+ * call‑to‑action, pricing information and delivery time. It is
+ * designed to fill the available width and wrap neatly on small
+ * screens.
+ */
+.awb-order-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0;
+  padding: 0;
+  border-top: 1px solid #e8e8e8;
+  padding-top: 16px;
+}
+/* Primary CTA button */
+.awb-order-bar .button.awb-preview {
+  background-color: #82b440;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 1.1em;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  flex: 1 0 100%;
+  text-align: center;
+}
+/* Pricing info column */
+.awb-order-bar .awb-order-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+.awb-order-bar .awb-order-info .total-price {
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 2px;
+  color: #111;
+}
+.awb-order-bar .awb-order-info .sqm-price {
+  font-size: 0.85em;
+  color: #666;
+  margin-bottom: 2px;
+}
+.awb-order-bar .awb-order-info .awb-inc-vat {
+  font-size: 0.75em;
+  color: #666;
+}
+/* Delivery time aligned to the far right on larger screens */
+.awb-order-bar .awb-delivery-time {
+  margin-left: auto;
+  font-size: 0.85em;
+  color: #666;
+  white-space: nowrap;
+}
+@media (max-width: 768px) {
+  .awb-order-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .awb-order-bar .button.awb-preview {
+    flex-basis: 100%;
+  }
+  .awb-order-bar .awb-delivery-time {
+    margin-left: 0;
+    margin-top: 8px;
+  }
+}
+
+/* Variation select and AWB input uniform sizing */
+/* Ensure all variation selects and AWB inputs have consistent width and height */
+form.variations_form table.variations select,
+form.variations_form table.variations .select2-container--default .select2-selection--single {
+  width: 100% !important;
+  min-height: 40px;
+  padding: 6px;
+  box-sizing: border-box;
+}
+
+.awb-box .size-inputs input,
+.awb-box input[type="text"],
+.awb-box input[type="number"] {
+  min-height: 40px;
+}
+
+/* Use the Roboto font and bold weight for all variation labels and AWB labels */
+form.variations_form table.variations td.label label,
+.awb-box .row label {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+
+/* Hide the default WooCommerce add to cart button, quantity inputs and variation price.
+ * The builder replaces the add‑to‑cart flow with its own preview and add flow.
+ */
+form.cart .single_add_to_cart_button,
+form.cart .quantity,
+form.cart .woocommerce-variation-price {
+  display: none !important;
+}
+/* Lightbox */
+.awb-modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:99999}
+/* Modal container: use almost full viewport size and remove rounded corners. The inner
+ * container is flex‑oriented so that the header stays at the top, the result area
+ * expands to fill available space, and the actions sit at the bottom. */
+.awb-modal .inner{
+  background:#fff;
+  border-radius: 0;
+  width:95vw;
+  height:95vh;
+  max-width:95vw;
+  max-height:95vh;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,.3);
+  position:relative;
+}
+
+/* Header bar: black with white text. Contains only the close icon. */
+.awb-modal-header{
+  background:#000;
+  color:#fff;
+  padding:8px 16px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+}
+.awb-modal-header .awb-close-x{
+  font-size:2em;
+  line-height:1;
+  border:0;
+  background:none;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* Remove the old progress bar; we use an overlay instead. */
+.awb-modal .progress{display:none}
+.awb-modal .progress .bar{display:none}
+.awb-modal .progress .pct{display:none}
+
+/* Result area fills the available space, with relative positioning for the overlay */
+.awb-modal .awb-result{
+  flex:1;
+  position:relative;
+  padding:20px;
+  overflow:auto;
+}
+
+
+/* Revision area: hidden by default. The modal JS toggles its display on click. */
+.awb-modal .awb-modal-revision{
+  display:none;
+  padding:0 20px 20px;
+}
+
+/* Actions: bottom bar with right‑aligned buttons. Remove border radius from top. */
+.awb-modal .actions{
+  display:flex;
+  gap:10px;
+  justify-content:flex-end;
+  padding:12px 20px;
+  border-top:1px solid #eee;
+  /* Force the action bar to sit at the bottom */
+  margin-top:auto;
+}
+
+/* Hide the old green close button if present */
+.awb-modal .actions .awb-close{display:none}
+.awb-modal .progress{height:8px;background:#eee;border-radius: 0;overflow:hidden;margin-bottom:10px}
+.awb-modal .progress .bar{display:block;height:100%;width:1%;background:#5b5fff;transition:width .25s}
+.awb-modal .actions{display:flex;gap:8px;justify-content:flex-end;margin-top:10px}
+/* Hide the revision area by default. It will be shown via JS when the user
+ * clicks the revise button. */
+.awb-modal .awb-modal-revision{display:none;margin-top:8px}
+
+/* Close icon in the top right of the modal */
+
+/* Reduce preview image size: show images at 80% max width and center them */
+.awb-modal .awb-preview-images img{
+  max-width:80%;
+  height:auto;
+  display:block;
+  /* Align images to the left within the modal preview area */
+  margin-left:0;
+  margin-right:auto;
+}
+.awb-modal .awb-modal-revision textarea{width:100%}
+.awb-error{color:#b00020;font-weight:600}
+
+/* Tabs for showing the original and revised images in the modal. */
+.awb-modal .awb-tabs{
+  display:flex;
+  gap:6px;
+  margin-bottom:6px;
+}
+.awb-modal .awb-tabs .awb-tab-btn{
+  /* Increase the size of the tab buttons by 20% */
+  padding:8px 14px;
+  border:1px solid #ddd;
+  background:#f5f5f5;
+  border-radius: 0;
+  cursor:pointer;
+  /* Increase the font size by roughly 20% for better visibility */
+  font-size:1.2em;
+  line-height:1.2;
+}
+.awb-modal .awb-tabs .awb-tab-btn.active{
+  background:#fff;
+  border-bottom-color:#fff;
+  font-weight:600;
+}
+.awb-modal .awb-tab-content{
+  border:1px solid #ddd;
+  border-top:0;
+  border-radius: 0;
+  max-height:70vh;
+  overflow:auto;
+}
+.awb-modal .awb-tab-content .awb-pane{
+  display:none;
+  padding:8px;
+}
+.awb-modal .awb-tab-content .awb-pane.active{
+  display:block;
+}
+
+/* Full screen modal layout: two columns with preview and form */
+.awb-modal{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh;
+  background:rgba(0,0,0,0.8);
+  z-index:9999;
+  overflow:auto;
+}
+.awb-modal .awb-inner{
+  /* Make the modal take up the full viewport */
+  background:#fff;
+  width:100%;
+  height:100%;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  border-radius: 0;
+  overflow:hidden;
+}
+.awb-top-bar{
+  background:#000;
+  color:#fff;
+  padding:0 20px;
+  height:60px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+}
+.awb-top-bar .awb-close-x{
+  background:none;
+  border:none;
+  color:#fff;
+  font-size:30px;
+  cursor:pointer;
+}
+.awb-content{
+  flex:1;
+  display:flex;
+  overflow:hidden;
+}
+.awb-preview-col{
+  flex:2;
+  position:relative;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:auto;
+}
+.awb-preview-col .awb-result{
+  width:100%;
+  height:100%;
+  position:relative;
+}
+/* Overlay that appears while an image is generating. It covers the entire
+ * preview column with a dark background and shows both a spinning ring
+ * and the current percentage. When the AJAX request starts, JS adds
+ * the `.visible` class; once finished it will fade out. */
+.awb-preview-col .progress-overlay{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  flex-direction:row;
+  background:rgba(0,0,0,0.85);
+  color:#fff;
+  font-size:24px;
+  z-index:10;
+}
+.awb-preview-col .progress-overlay.visible{
+  display:flex;
+}
+/* Circular spinner around the percentage indicator. The border is mostly
+ * transparent except the top segment, which rotates to create a loading
+ * animation. */
+.awb-preview-col .progress-overlay .spinner{
+  width:48px;
+  height:48px;
+  border:6px solid rgba(255,255,255,0.2);
+  border-top-color:#fff;
+  border-radius: 0;
+  animation:awb-spin 1s linear infinite;
+  margin-right:10px;
+}
+@keyframes awb-spin{
+  to{ transform: rotate(360deg); }
+}
+.awb-preview-images img{
+  max-width:100%;
+  max-height:100%;
+  height:auto;
+  display:block;
+  margin:0 auto;
+  object-fit:contain;
+}
+
+/* Ensure the container for preview images fills the available space and centers
+ * its content. This allows the images to expand to the full width of the
+ * left column while preserving aspect ratio. */
+.awb-preview-images{
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+}
+.awb-form-col{
+  flex:1;
+  background:#f9f9f9;
+  display:flex;
+  flex-direction:column;
+  padding:20px;
+  overflow:auto;
+}
+.awb-modal-fields .row{
+  margin-bottom:10px;
+}
+.awb-modal-fields .row label{
+  font-weight:bold;
+  margin-bottom:4px;
+  display:block;
+}
+.awb-modal-fields .row input,
+.awb-modal-fields .row textarea,
+.awb-modal-fields .row select{
+  width:100%;
+  box-sizing:border-box;
+  padding:6px;
+}
+
+/* Arrange the size inputs (width and height) in two columns with a separator */
+.awb-modal-fields .size-inputs{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+.awb-modal-fields .size-inputs input{
+  flex:1;
+  width:auto;
+}
+.awb-modal-fields .size-inputs .size-sep{
+  font-weight:600;
+  line-height:1;
+}
+.awb-modal-revision{
+  margin-top:20px;
+}
+.awb-modal-actions{
+  margin-top:auto;
+  display:flex;
+  gap:10px;
+  justify-content:flex-end;
+  padding-top:10px;
+}
+
+
+/* === Size inputs with icons and units (cm) === */
+.awb-box .size-inputs{display:flex;align-items:center;gap:10px}
+.awb-box .awb-input-group{position:relative;flex:1 1 0;min-width:0}
+.awb-box .awb-input-group input[type=number]{width:100%;padding:8px 36px 8px 36px;border:1px solid #ccc;border-radius: 0;font-size:15px;line-height:1.2}
+.awb-box .awb-input-group .icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:18px;height:18px;opacity:.7;pointer-events:none}
+.awb-box .awb-input-group .unit{position:absolute;right:10px;top:50%;transform:translateY(-50%);color:#777;font-weight:600;font-size:14px;pointer-events:none}
+.awb-box .size-sep{font-size:18px;color:#6b6b6b;margin:0 2px}
+/* Make sure numeric inputs do not show spinner arrows too prominently on WebKit */
+.awb-box input[type=number]::-webkit-outer-spin-button,
+.awb-box input[type=number]::-webkit-inner-spin-button{margin:0}
+/* Modal uses the same classes, so no extra CSS needed */

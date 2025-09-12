@@ -1,0 +1,10 @@
+/* Button-Optik: Bild verwenden in Blau */
+.awb-use-image, .awb-use-image.button, .awb-use-image.btn { 
+  background:#1d4ed8 !important; 
+  border-color:#1d4ed8 !important; 
+  color:#fff !important; 
+}
+.awb-use-image.is-busy{ opacity:.7; pointer-events:none; }
+
+/* Kleines Fine-Tuning Lightbox */
+.awb-correct-image, .awb-close-image { min-width:160px; }
